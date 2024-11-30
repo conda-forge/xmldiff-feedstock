@@ -12,7 +12,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - xmldiff = xmldiff.main:diff_command
@@ -20,16 +20,18 @@ build:
 
 requirements:
   host:
-    - python >=3
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3
+    - python >={{ python_min }}
     - lxml
     - setuptools
     - six
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - xmldiff
   commands:
