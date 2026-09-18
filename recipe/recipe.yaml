@@ -1,15 +1,15 @@
 schema_version: 1
 
 context:
-  version: "2.7.0"
+  version: '3.0'
 
 package:
   name: xmldiff
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/55/d8/b31a4d75bc72d5c3a5adf5012405118169b56d163ebf407e4fc49a575e96/xmldiff-${{ version }}.tar.gz
-  sha256: c0910b1f800366dd7ec62923e5d06e8b06a1bd9120569a1c27f4f2446b9c68a2
+- url: https://files.pythonhosted.org/packages/source/x/xmldiff/xmldiff-${{ version }}.tar.gz
+  sha256: 380ec4d05cef33f5b706cf789abcc848d27730d67e02dc0b4f1107e16ce9aaad
 
 build:
   number: 0
@@ -27,9 +27,7 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - lxml
-    - setuptools
-    - six
+    - lxml >=3.1.0
 
 tests:
   - python:
